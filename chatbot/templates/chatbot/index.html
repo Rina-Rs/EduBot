@@ -1,0 +1,112 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>EduBot - Assistant IA</title>
+
+    <link
+        rel="stylesheet"
+        href="{% static 'chatbot/style.css' %}"
+    >
+</head>
+
+<body>
+
+<div class="app">
+
+    <header class="topbar">
+
+        <div class="brand">
+            <div class="logo">E</div>
+
+            <div>
+                <h1>EduBot</h1>
+                <span>Assistant IA</span>
+            </div>
+        </div>
+
+        <button
+            id="new-chat-button"
+            class="new-chat"
+            type="button"
+        >
+            Nouvelle conversation
+        </button>
+
+    </header>
+
+
+    <main class="chat-area">
+
+        <div
+            id="messages"
+            class="messages"
+        >
+
+            <div class="message assistant">
+
+                <div class="avatar">
+                    E
+                </div>
+
+                <div class="bubble">
+                    <strong>EduBot</strong>
+
+                    <p>
+                        Bonjour ! Je suis EduBot.
+                        Pose-moi une question et je vais essayer
+                        de t'aider.
+                    </p>
+                </div>
+
+            </div>
+
+        </div>
+
+    </main>
+
+
+    <footer class="composer">
+
+        <form id="chat-form">
+
+            {% csrf_token %}
+
+            <textarea
+                id="message-input"
+                placeholder="Écris ton message..."
+                rows="1"
+                maxlength="4000"
+                autocomplete="off"
+            ></textarea>
+
+            <button
+                id="send-button"
+                type="submit"
+            >
+                Envoyer
+            </button>
+
+        </form>
+
+        <small>
+            EduBot peut parfois se tromper. Vérifie les informations importantes.
+        </small>
+
+    </footer>
+
+</div>
+
+
+<script src="{% static 'chatbot/app.js' %}"></script>
+
+</body>
+</html>
